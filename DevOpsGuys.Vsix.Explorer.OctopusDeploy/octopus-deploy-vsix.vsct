@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- Definition of the command and menus used by this sample -->
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <!--<Include href="KnownImageIds.vsct" />-->
+
+  <!-- Commands definition for the client package -->
+  <Commands package="octopusDeployPackage">
+    <Menus>
+      <Menu guid="octopusDeployPackageCommands" id="explorerToolbar" priority="0x0000" type="ToolWindowToolbar">
+        <Parent guid="octopusDeployPackageCommands" id="explorerToolbar" />
+        <Strings>
+          <ButtonText>Window ToolBar</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+
+    <Groups>
+      <!-- On the toolbar (menu) we can have 1 or more group that will contain the buttons -->
+      <Group guid="octopusDeployPackageCommands" id="explorerToolbarGroup" priority="0x0500">
+        <Parent guid="octopusDeployPackageCommands" id="explorerToolbar" />
+      </Group>
+    </Groups>
+
+    <!--  Buttons (commands) defined by the package.
+          This section defines the elements the user can interact with, like a menu command or a button
+          or combo box in a toolbar. -->
+    <Buttons>
+      <Button guid="explorerToolWindowGuid" id="explorerToolWindowCommand" priority="0x9000" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_ORG_WINDOWS"/>
+        <Icon guid="octopusDeployIcon" id="octopusDeployIcon1" />
+        <Strings>
+          <ButtonText>Octopus Deploy Explorer</ButtonText>
+        </Strings>
+      </Button>
+      <!-- The following command will appear on the tool window toolbar -->
+      <Button guid="explorerRefreshButtonGuid" id="explorerRefreshButtonCommand" priority="0x100" type="Button">
+        <!--<Icon guid="ImageCatalogGuid" id="Refresh" />-->
+        <!--<CommandFlag>IconIsMoniker</CommandFlag>-->
+        <Icon guid="refreshIcon" id="refreshIcon1" />
+        <Strings>
+          <ButtonText>Refresh</ButtonText>
+        </Strings>
+      </Button>
+      <!-- The following command will appear on the tool window toolbar -->
+      <Button guid="explorerSettingsButtonGuid" id="explorerSettingsButtonCommand" priority="0x101" type="Button">
+        <!--<Icon guid="ImageCatalogGuid" id="Settings" />-->
+        <!--<CommandFlag>IconIsMoniker</CommandFlag>-->
+        <Icon guid="settingsIcon" id="settingsIcon1" />
+        <Strings>
+          <ButtonText>Settings</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
+    <Bitmaps>
+      <Bitmap guid="octopusDeployIcon" href="Resources\\OctopusDeployIcon.png" usedList="octopusDeployIcon1" />
+      <Bitmap guid="dogIcon" href="Resources\\DogIcon.png" usedList="dogIcon1" />
+      <Bitmap guid="refreshIcon" href="Resources\\Refresh.png" usedList="refreshIcon1" />
+      <Bitmap guid="settingsIcon" href="Resources\\Settings.png" usedList="settingsIcon1" />
+    </Bitmaps>
+  </Commands>
+
+  <CommandPlacements>
+    <CommandPlacement guid="explorerRefreshButtonGuid" id="explorerRefreshButtonCommand" priority="0x100">
+      <Parent guid="octopusDeployPackageCommands" id="explorerToolbarGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="explorerSettingsButtonGuid" id="explorerSettingsButtonCommand" priority="0x101">
+      <Parent guid="octopusDeployPackageCommands" id="explorerToolbarGroup" />
+    </CommandPlacement>
+  </CommandPlacements>
+
+  <KeyBindings>
+    <KeyBinding guid="explorerToolWindowGuid" id="explorerToolWindowCommand" mod1="CONTROL" key1="VK_OEM_5" key2="O" editor="guidVSStd97" />
+  </KeyBindings>
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="octopusDeployPackage" value="{94f16d76-eaa5-4118-99a0-421f83c78110}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="octopusDeployPackageCommands" value="{b3afd029-1649-492a-846c-114c6761f2a9}">
+      <!--Menus-->
+      <IDSymbol name="explorerToolbar" value="0x101" />
+      <!--Groups-->
+      <IDSymbol name="explorerToolbarGroup" value="0x1001" />
+    </GuidSymbol>
+
+    <!-- Tool windows -->
+    <GuidSymbol name="explorerToolWindowGuid" value="{f6d1ca67-427c-41c4-b424-c5ce7ccd32b9}">
+      <IDSymbol name="explorerToolWindowCommand" value="0x2001" />
+    </GuidSymbol>
+
+    <!-- Buttons -->
+    <GuidSymbol name="explorerRefreshButtonGuid" value="{6e26b076-d635-4a6e-82a8-ba10483f5414}">
+      <IDSymbol name="explorerRefreshButtonCommand" value="0x3001" />
+    </GuidSymbol>
+
+    <GuidSymbol name="explorerSettingsButtonGuid" value="{2437b242-5e0a-4706-a430-e9e346edc584}">
+      <IDSymbol name="explorerSettingsButtonCommand" value="0x3002" />
+    </GuidSymbol>
+
+    <!-- Icons -->
+    <GuidSymbol name="octopusDeployIcon" value="{cd408f24-6f69-4cb9-8a08-e8210e57b85f}">
+      <IDSymbol name="octopusDeployIcon1" value="1" />
+    </GuidSymbol>
+    <GuidSymbol name="dogIcon" value="{0a70c6f9-1d10-486a-b77b-52c6250f2341}">
+      <IDSymbol name="dogIcon1" value="1" />
+    </GuidSymbol>
+    <GuidSymbol name="refreshIcon" value="{5901906b-8c2a-4fe7-920c-ab0cfad6baec}">
+      <IDSymbol name="refreshIcon1" value="1" />
+    </GuidSymbol>
+    <GuidSymbol name="settingsIcon" value="{09765a41-bfec-4333-b254-dff04f0cb29a}">
+      <IDSymbol name="settingsIcon1" value="1" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

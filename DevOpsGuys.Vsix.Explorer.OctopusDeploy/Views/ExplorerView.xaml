@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="DevOpsGuys.Vsix.Explorer.OctopusDeploy.Views.ExplorerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ui="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.UI"
+             xmlns:shell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.12.0"
+             xmlns:plaformUi="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.12.0"
+             xmlns:viewModels="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.ViewModels"
+             xmlns:converters="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.Converters"
+             xmlns:infrastructure="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.Infrastructure"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:ReleaseVersionBackgroundConverter x:Key="ReleaseVersionBackgroundConverter"/>
+        <converters:ReleaseCellCursorConverter x:Key="ReleaseCellCursorConverter"/>
+        <DataTemplate x:Key="DynamicCellBackgroundTemplate">
+            <Border Background="{Binding Converter={StaticResource ReleaseVersionBackgroundConverter}}" MinHeight="25">
+                <Label Cursor="{Binding Converter={StaticResource ReleaseCellCursorConverter}}" Content="{Binding ReleaseVersion}"/>
+            </Border>
+        </DataTemplate>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowTextKey}}"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowTextKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowTextKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}"/>
+        </Style>
+        <Style TargetType="TreeView">
+            <Setter Property="Background" Value="{DynamicResource {x:Static plaformUi:TreeViewColors.BackgroundColorKey}}"/>
+        </Style>
+        <Style TargetType="GridSplitter">
+            <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBorderKey}}"/>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}"/>
+        </Style>
+        <Style TargetType="UniformGrid">
+            <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="{Binding HasException}">
+            <TextBlock Margin="10, 10" VerticalAlignment="Stretch" Text="{Binding OctopusViewModel.ExceptionMessage}" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBlock>
+            <Button Margin="10, 10" Visibility="{Binding HasExceptionResolution}" Content="{Binding OctopusViewModel.ExceptionMessageButtonText}" Cursor="Hand" Command="{Binding OctopusViewModel.ExceptionResolutionCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock>
+                            <ContentPresenter />
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.ControlLinkTextKey}}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.StartPageTextControlLinkSelectedHoverKey}}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <TreeView x:Name="treeView" Grid.Column="0" BorderThickness="0" ItemsSource="{Binding OctopusViewModel.Groups}" HorizontalAlignment="Stretch" Visibility="{Binding IsTreeVisible, Mode=OneWay}">
+            <i:Interaction.Behaviors>
+                <infrastructure:TreeViewBindableSelectedItemBehavior SelectedItem="{Binding SelectedProjectItem}" />
+            </i:Interaction.Behaviors>
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type viewModels:OctopusGroupViewModel}" ItemsSource="{Binding Children}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding Resource.Name}" Margin="5,0" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:OctopusProjectViewModel}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding Resource.Name}" Margin="5,0" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </DataTemplate>
+            </TreeView.Resources>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                    <Setter Property="Visibility" Value="{Binding IsVisible, Mode=OneWay}"/>
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static plaformUi:TreeViewColors.BackgroundTextBrushKey}}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+        <GridSplitter Grid.Column="1" ResizeDirection="Columns" Width="5" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ShowsPreview="True" Visibility="{Binding IsGridVisible}"/>
+        <DataGrid x:Name="dataGrid" Grid.Row="0" Grid.Column="2" AutoGenerateColumns="false" infrastructure:DataGridExtension.ReleaseMatrixSource="{Binding SelectedProjectItem.ReleaseMatrix}" HorizontalAlignment="Stretch" BorderThickness="0" SelectionMode="Single" SelectionUnit="Cell" Visibility="{Binding IsGridVisible}" BorderBrush="{x:Null}" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" Focusable="False" RowHeaderWidth="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" RowBackground="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}">
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowTextKey}}"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="2,0"></Setter>
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static shell:VsBrushes.GridHeadingTextKey}}"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static shell:VsBrushes.GridHeadingBackgroundKey}}"/>
+                    <Setter Property="BorderThickness" Value="0,1,1,1"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.VerticalGridLinesBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
+            </DataGrid.VerticalGridLinesBrush>
+            <DataGrid.HorizontalGridLinesBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
+            </DataGrid.HorizontalGridLinesBrush>
+        </DataGrid>
+        <UniformGrid Grid.Column="2" Columns="2" VerticalAlignment="Bottom">
+            <Label VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="{Binding OctopusViewModel.ServerVersion}" MinHeight="15"></Label>
+            <Label VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="{Binding SemanticVersionNumber}" MinHeight="15"></Label>
+        </UniformGrid>
+    </Grid>
+</UserControl>

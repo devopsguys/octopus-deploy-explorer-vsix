@@ -1,0 +1,103 @@
+﻿{
+  "ItemType": "ProjectGroup",
+  "IsStale": false,
+  "TotalResults": 7,
+  "ItemsPerPage": 10,
+  "Items": [
+    {
+      "Id": "ProjectGroups-1",
+      "Name": "All Projects",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": "RetentionPolicies-KeepAll",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-1",
+        "Projects": "/api/projectgroups/ProjectGroups-1/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-97",
+      "Name": "Configuration",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "LastModifiedOn": "2015-07-20T17:47:46.933+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-97",
+        "Projects": "/api/projectgroups/ProjectGroups-97/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-66",
+      "Name": "Databases",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "LastModifiedOn": "2015-03-11T15:48:40.690+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-66",
+        "Projects": "/api/projectgroups/ProjectGroups-66/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-129",
+      "Name": "Integration Services",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "LastModifiedOn": "2015-12-09T12:06:49.542+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-129",
+        "Projects": "/api/projectgroups/ProjectGroups-129/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-65",
+      "Name": "Reports",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "LastModifiedOn": "2015-03-11T15:48:27.695+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-65",
+        "Projects": "/api/projectgroups/ProjectGroups-65/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-34",
+      "Name": "Services",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "LastModifiedOn": "2015-01-29T10:13:41.792+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-34",
+        "Projects": "/api/projectgroups/ProjectGroups-34/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-33",
+      "Name": "Sites",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "LastModifiedOn": "2015-01-28T17:20:48.546+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-33",
+        "Projects": "/api/projectgroups/ProjectGroups-33/projects"
+      }
+    }
+  ],
+  "Links": {
+    "Self": "/api/projectgroups",
+    "Template": "/api/projectgroups{?skip}",
+    "Page.Current": "/api/projectgroups?skip=0",
+    "Page.0": "/api/projectgroups?skip=0"
+  }
+}

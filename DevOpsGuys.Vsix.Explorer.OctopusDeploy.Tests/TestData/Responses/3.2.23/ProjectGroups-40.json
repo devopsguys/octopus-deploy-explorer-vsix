@@ -1,0 +1,146 @@
+﻿{
+  "ItemType": "Project",
+  "IsStale": false,
+  "TotalResults": 4,
+  "ItemsPerPage": 30,
+  "Items": [
+    {
+      "Id": "Projects-141",
+      "VariableSetId": "variableset-Projects-141",
+      "DeploymentProcessId": "deploymentprocess-Projects-141",
+      "IncludedLibraryVariableSetIds": [],
+      "DefaultToSkipIfAlreadyInstalled": false,
+      "VersioningStrategy": {
+        "DonorPackageStepId": null,
+        "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+      },
+      "ReleaseCreationStrategy": {
+        "ReleaseCreationPackageStepId": "",
+        "ChannelId": null
+      },
+      "Name": "Azure Web Blue-Green Sample",
+      "Slug": "azure-web-blue-green-sample",
+      "Description": "An example of implementing Blue-Green deployments for Azure Web Apps using Deployment Slots. \nSee the [documentation](http://docs.octopusdeploy.com/display/OD/Using+Deployment+Slots+with+Azure+Web+Apps) for the walk-through.\n",
+      "IsDisabled": false,
+      "ProjectGroupId": "ProjectGroups-40",
+      "LifecycleId": "Lifecycles-121",
+      "AutoCreateRelease": false,
+      "Links": {
+        "Self": "/api/projects/Projects-141",
+        "Releases": "/api/projects/Projects-141/releases{/version}{?skip}",
+        "Channels": "/api/projects/Projects-141/channels",
+        "OrderChannels": "/api/projects/Projects-141/channels/order",
+        "Variables": "/api/variables/variableset-Projects-141",
+        "Progression": "/api/progression/Projects-141",
+        "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-Projects-141",
+        "Web": "/app#/projects/Projects-141",
+        "Logo": "/api/projects/Projects-141/logo"
+      }
+    },
+    {
+      "Id": "Projects-201",
+      "VariableSetId": "variableset-Projects-201",
+      "DeploymentProcessId": "deploymentprocess-Projects-201",
+      "IncludedLibraryVariableSetIds": [],
+      "DefaultToSkipIfAlreadyInstalled": false,
+      "VersioningStrategy": {
+        "DonorPackageStepId": null,
+        "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+      },
+      "ReleaseCreationStrategy": {
+        "ReleaseCreationPackageStepId": "",
+        "ChannelId": null
+      },
+      "Name": "Machine Environment Variables",
+      "Slug": "machine-environment-variables",
+      "Description": "",
+      "IsDisabled": false,
+      "ProjectGroupId": "ProjectGroups-40",
+      "LifecycleId": "Lifecycles-84",
+      "AutoCreateRelease": false,
+      "Links": {
+        "Self": "/api/projects/Projects-201",
+        "Releases": "/api/projects/Projects-201/releases{/version}{?skip}",
+        "Channels": "/api/projects/Projects-201/channels",
+        "OrderChannels": "/api/projects/Projects-201/channels/order",
+        "Variables": "/api/variables/variableset-Projects-201",
+        "Progression": "/api/progression/Projects-201",
+        "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-Projects-201",
+        "Web": "/app#/projects/Projects-201",
+        "Logo": "/api/projects/Projects-201/logo"
+      }
+    },
+    {
+      "Id": "Projects-161",
+      "VariableSetId": "variableset-Projects-161",
+      "DeploymentProcessId": "deploymentprocess-Projects-161",
+      "IncludedLibraryVariableSetIds": [],
+      "DefaultToSkipIfAlreadyInstalled": false,
+      "VersioningStrategy": {
+        "DonorPackageStepId": null,
+        "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+      },
+      "ReleaseCreationStrategy": {
+        "ReleaseCreationPackageStepId": null,
+        "ChannelId": null
+      },
+      "Name": "Or And",
+      "Slug": "or-and",
+      "Description": "",
+      "IsDisabled": false,
+      "ProjectGroupId": "ProjectGroups-40",
+      "LifecycleId": "Lifecycles-20",
+      "AutoCreateRelease": false,
+      "Links": {
+        "Self": "/api/projects/Projects-161",
+        "Releases": "/api/projects/Projects-161/releases{/version}{?skip}",
+        "Channels": "/api/projects/Projects-161/channels",
+        "OrderChannels": "/api/projects/Projects-161/channels/order",
+        "Variables": "/api/variables/variableset-Projects-161",
+        "Progression": "/api/progression/Projects-161",
+        "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-Projects-161",
+        "Web": "/app#/projects/Projects-161",
+        "Logo": "/api/projects/Projects-161/logo"
+      }
+    },
+    {
+      "Id": "Projects-82",
+      "VariableSetId": "variableset-Projects-82",
+      "DeploymentProcessId": "deploymentprocess-Projects-82",
+      "IncludedLibraryVariableSetIds": [],
+      "DefaultToSkipIfAlreadyInstalled": false,
+      "VersioningStrategy": {
+        "DonorPackageStepId": null,
+        "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+      },
+      "ReleaseCreationStrategy": {
+        "ReleaseCreationPackageStepId": "",
+        "ChannelId": null
+      },
+      "Name": "Output Variables",
+      "Slug": "output-variables",
+      "Description": "",
+      "IsDisabled": false,
+      "ProjectGroupId": "ProjectGroups-40",
+      "LifecycleId": "Lifecycles-1",
+      "AutoCreateRelease": false,
+      "Links": {
+        "Self": "/api/projects/Projects-82",
+        "Releases": "/api/projects/Projects-82/releases{/version}{?skip}",
+        "Channels": "/api/projects/Projects-82/channels",
+        "OrderChannels": "/api/projects/Projects-82/channels/order",
+        "Variables": "/api/variables/variableset-Projects-82",
+        "Progression": "/api/progression/Projects-82",
+        "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-Projects-82",
+        "Web": "/app#/projects/Projects-82",
+        "Logo": "/api/projects/Projects-82/logo"
+      }
+    }
+  ],
+  "Links": {
+    "Self": "/api/projectgroups/ProjectGroups-40/projects",
+    "Template": "/api/projectgroups/ProjectGroups-40/projects",
+    "Page.Current": "/api/projectgroups/ProjectGroups-40/projects?skip=0",
+    "Page.0": "/api/projectgroups/ProjectGroups-40/projects?skip=0"
+  }
+}

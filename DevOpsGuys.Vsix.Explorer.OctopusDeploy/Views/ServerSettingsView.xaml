@@ -1,0 +1,58 @@
+﻿<platformUi:DialogWindow x:Class="DevOpsGuys.Vsix.Explorer.OctopusDeploy.Views.ServerSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.UI"
+             xmlns:platformUi="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.12.0"
+             xmlns:infrastructure="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.Infrastructure"
+             mc:Ignorable="d" Title="Server Settings" Width="495" Height="150" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+             infrastructure:WindowAttachedProperties.DialogResult="{Binding DialogResult}">
+
+    <platformUi:DialogWindow.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonDialog" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="MinWidth" Value="75" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="Padding" Value="5,2" />
+            </Style>
+        </ResourceDictionary>
+    </platformUi:DialogWindow.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Octopus Deploy Server Url:" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" Margin="5" />
+        <TextBox Text="{Binding OctopusServerUrl, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Width="300" Margin="5" VerticalContentAlignment="Center"/>
+
+        <Label Content="API Key:" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Margin="5" />
+        <PasswordBox Name="ApiKeyBox" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="300" Margin="5" VerticalContentAlignment="Center"/>
+        <!--<TextBox Text="{Binding OctopusServerApiKey, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="300" Margin="5" VerticalContentAlignment="Center"/>-->
+
+        <ContentControl Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Content="{Binding}" Focusable="False" Margin="0, 0, 5, 0">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="save" Content="Save" Command="{Binding SaveCommand}" IsDefault="True" Style="{StaticResource ButtonDialog}" />
+                        <Button x:Name="cancel" Content="Cancel" Command="{Binding CancelCommand}" IsCancel="True" Style="{StaticResource ButtonDialog}" />
+                    </StackPanel>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="save" Property="IsEnabled" Value="False">
+                            <Setter TargetName="save" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="cancel" Property="Content" Value="Close" />
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+    </Grid>
+</platformUi:DialogWindow>

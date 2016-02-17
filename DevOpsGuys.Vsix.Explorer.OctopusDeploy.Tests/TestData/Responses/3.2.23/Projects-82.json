@@ -1,0 +1,33 @@
+﻿{
+  "Id": "Projects-82",
+  "VariableSetId": "variableset-Projects-82",
+  "DeploymentProcessId": "deploymentprocess-Projects-82",
+  "IncludedLibraryVariableSetIds": [],
+  "DefaultToSkipIfAlreadyInstalled": false,
+  "VersioningStrategy": {
+    "DonorPackageStepId": null,
+    "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+  },
+  "ReleaseCreationStrategy": {
+    "ReleaseCreationPackageStepId": "",
+    "ChannelId": null
+  },
+  "Name": "Output Variables",
+  "Slug": "output-variables",
+  "Description": "",
+  "IsDisabled": false,
+  "ProjectGroupId": "ProjectGroups-40",
+  "LifecycleId": "Lifecycles-1",
+  "AutoCreateRelease": false,
+  "Links": {
+    "Self": "/api/projects/Projects-82",
+    "Releases": "/api/projects/Projects-82/releases{/version}{?skip}",
+    "Channels": "/api/projects/Projects-82/channels",
+    "OrderChannels": "/api/projects/Projects-82/channels/order",
+    "Variables": "/api/variables/variableset-Projects-82",
+    "Progression": "/api/progression/Projects-82",
+    "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-Projects-82",
+    "Web": "/app#/projects/Projects-82",
+    "Logo": "/api/projects/Projects-82/logo"
+  }
+}

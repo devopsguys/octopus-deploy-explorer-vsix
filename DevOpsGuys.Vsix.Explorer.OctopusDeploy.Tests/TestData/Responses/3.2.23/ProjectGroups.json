@@ -1,0 +1,58 @@
+﻿{
+  "ItemType": "ProjectGroup",
+  "IsStale": false,
+  "TotalResults": 4,
+  "ItemsPerPage": 10,
+  "Items": [
+    {
+      "Id": "ProjectGroups-1",
+      "Name": "All Projects",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-1",
+        "Projects": "/api/projectgroups/ProjectGroups-1/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-61",
+      "Name": "Channels",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-61",
+        "Projects": "/api/projectgroups/ProjectGroups-61/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-22",
+      "Name": "OctoFX",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-22",
+        "Projects": "/api/projectgroups/ProjectGroups-22/projects"
+      }
+    },
+    {
+      "Id": "ProjectGroups-40",
+      "Name": "Other Samples",
+      "Description": null,
+      "EnvironmentIds": [],
+      "RetentionPolicyId": null,
+      "Links": {
+        "Self": "/api/projectgroups/ProjectGroups-40",
+        "Projects": "/api/projectgroups/ProjectGroups-40/projects"
+      }
+    }
+  ],
+  "Links": {
+    "Self": "/api/projectgroups",
+    "Template": "/api/projectgroups{?skip}",
+    "Page.Current": "/api/projectgroups?skip=0",
+    "Page.0": "/api/projectgroups?skip=0"
+  }
+}

@@ -1,0 +1,83 @@
+﻿{
+  "ItemType": "Project",
+  "IsStale": false,
+  "TotalResults": 2,
+  "ItemsPerPage": 30,
+  "Items": [
+    {
+      "Id": "projects-2",
+      "VariableSetId": "variableset-projects-2",
+      "DeploymentProcessId": "deploymentprocess-projects-2",
+      "IncludedLibraryVariableSetIds": [
+        "LibraryVariableSets-33"
+      ],
+      "DefaultToSkipIfAlreadyInstalled": false,
+      "VersioningStrategy": {
+        "DonorPackageStepId": null,
+        "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+      },
+      "ReleaseCreationStrategy": {
+        "ReleaseCreationPackageStepId": ""
+      },
+      "Name": "RoutingService",
+      "Slug": "routingservice",
+      "Description": "",
+      "IsDisabled": false,
+      "ProjectGroupId": "ProjectGroups-34",
+      "LifecycleId": "lifecycle-ProjectGroups-1",
+      "AutoCreateRelease": false,
+      "LastModifiedOn": "2015-07-14T13:15:03.429+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projects/projects-2",
+        "Releases": "/api/projects/projects-2/releases{/version}{?skip}",
+        "Variables": "/api/variables/variableset-projects-2",
+        "Progression": "/api/progression/projects-2",
+        "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-projects-2",
+        "Web": "/app#/projects/projects-2",
+        "Logo": "/api/projects/projects-2/logo"
+      }
+    },
+    {
+      "Id": "projects-3",
+      "VariableSetId": "variableset-projects-3",
+      "DeploymentProcessId": "deploymentprocess-projects-3",
+      "IncludedLibraryVariableSetIds": [
+        "LibraryVariableSets-33",
+        "LibraryVariableSets-1"
+      ],
+      "DefaultToSkipIfAlreadyInstalled": false,
+      "VersioningStrategy": {
+        "DonorPackageStepId": null,
+        "Template": "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+      },
+      "ReleaseCreationStrategy": {
+        "ReleaseCreationPackageStepId": ""
+      },
+      "Name": "Service",
+      "Slug": "service",
+      "Description": "",
+      "IsDisabled": false,
+      "ProjectGroupId": "ProjectGroups-34",
+      "LifecycleId": "lifecycle-ProjectGroups-1",
+      "AutoCreateRelease": false,
+      "LastModifiedOn": "2015-07-14T13:43:25.405+00:00",
+      "LastModifiedBy": "e@mail.com",
+      "Links": {
+        "Self": "/api/projects/projects-3",
+        "Releases": "/api/projects/projects-3/releases{/version}{?skip}",
+        "Variables": "/api/variables/variableset-projects-3",
+        "Progression": "/api/progression/projects-3",
+        "DeploymentProcess": "/api/deploymentprocesses/deploymentprocess-projects-3",
+        "Web": "/app#/projects/projects-3",
+        "Logo": "/api/projects/projects-3/logo"
+      }
+    }
+  ],
+  "Links": {
+    "Self": "/api/projectgroups/ProjectGroups-34/projects",
+    "Template": "/api/projectgroups/ProjectGroups-34/projects",
+    "Page.Current": "/api/projectgroups/ProjectGroups-34/projects?skip=0",
+    "Page.0": "/api/projectgroups/ProjectGroups-34/projects?skip=0"
+  }
+}

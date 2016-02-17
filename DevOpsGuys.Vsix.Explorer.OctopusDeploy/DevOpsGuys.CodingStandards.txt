@@ -1,5 +1,0 @@
-﻿DevOpsGuys.CodingStandards
-===============================
-
-This NuGet package enforces the common coding standards by applying StyleCop rules, 
-adding StyleCop to the build process, and also configuring Code Analysis rules.

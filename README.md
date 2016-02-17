@@ -4,10 +4,10 @@
 
 [DevOpsGuys](http://www.devopsguys.com) We are experts in delivering practical engineering solutions to revolutionise the way business works.
 
-[Octopus Deploy](https://stormpath.com) is a friendly deployment automation tool for .NET developers. Octopus works with your build server to enable reliable, secure, automated releases of ASP.NET applications and Windows Services into test, staging and production environments, whether they are in the cloud or on-premises.
+[Octopus Deploy](https://www.octopusdeploy.com) is a friendly deployment automation tool for .NET developers. Octopus works with your build server to enable reliable, secure, automated releases of ASP.NET applications and Windows Services into test, staging and production environments, whether they are in the cloud or on-premises.
 
 If you have feedback about this extension, please get in touch and share your thoughts!  
-[@devopsguys #doglabs](https://twitter.com/devopsguys)  doglabs@devopsguys.com  [@OctopusDeploy](https://twitter.com/OctopusDeploy)
+[@devopsguys #doglabs](https://twitter.com/devopsguys)  |  doglabs@devopsguys.com  |  [@OctopusDeploy](https://twitter.com/OctopusDeploy)
 
 ## Installation
 

@@ -1,6 +1,16 @@
-﻿namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Tests.Services
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ApiServiceTests.cs" company="DevOpsGuys Ltd">
+//   Copyright (c) DevOpsGuys Ltd. All rights reserved.
+// </copyright>
+// <summary>
+//   Tests for the API service.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Tests.Services
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using DevOpsGuys.Vsix.Explorer.OctopusDeploy.Events;
@@ -194,7 +204,7 @@
         }
 
         /// <summary>
-        /// We support prerelease version numbers too.
+        /// We support pre release version numbers too.
         /// </summary>
         [Test]
         public void PrereleaseReleaseVersionSupported()
@@ -205,7 +215,7 @@
             rootDocument.Links.Add("ProjectGroups", string.Empty);
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.RootDocument).Return(rootDocument);
-            this.octopusClient.Expect(x => x.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"])).Return(ServerTestData.ProjectGroups(rootDocument.Version));
+            this.octopusClient.Expect(x => x.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all")).Return(ServerTestData.ProjectGroups(rootDocument.Version));
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act
@@ -229,7 +239,7 @@
             rootDocument.Links.Add("ProjectGroups", string.Empty);
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.RootDocument).Return(rootDocument);
-            this.octopusClient.Expect(x => x.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"])).Throw(new OctopusSecurityException(401, string.Empty));
+            this.octopusClient.Expect(x => x.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all")).Throw(new OctopusSecurityException(401, string.Empty));
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act
@@ -255,7 +265,7 @@
             rootDocument.Links.Add("ProjectGroups", string.Empty);
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.RootDocument).Return(rootDocument);
-            this.octopusClient.Expect(x => x.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"])).Throw(new OctopusDeserializationException(500, string.Empty));
+            this.octopusClient.Expect(x => x.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all")).Throw(new OctopusDeserializationException(500, string.Empty));
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act
@@ -281,7 +291,7 @@
             rootDocument.Links.Add("ProjectGroups", string.Empty);
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.RootDocument).Return(rootDocument);
-            this.octopusClient.Expect(x => x.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"])).Return(ServerTestData.ProjectGroups(rootDocument.Version));
+            this.octopusClient.Expect(x => x.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all")).Return(ServerTestData.ProjectGroups(rootDocument.Version));
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act
@@ -316,7 +326,7 @@
         {
             // Arrange
             var groups = ServerTestData.ProjectGroups(V26VersionNumber);
-            var group = new OctopusGroupViewModel(groups.Items.First(g => g.Name == "Services"));
+            var group = new OctopusGroupViewModel(groups.First(g => g.Name == "Services"));
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.List<ProjectResource>(group.Resource.Links["Projects"])).Return(ServerTestData.Projects(V26VersionNumber, group.Resource));
 
@@ -373,7 +383,7 @@
             rootDocument.Links.Add("ProjectGroups", string.Empty);
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.RootDocument).Return(rootDocument);
-            this.octopusClient.Expect(x => x.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"])).Return(ServerTestData.ProjectGroups(rootDocument.Version));
+            this.octopusClient.Expect(x => x.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all")).Return(ServerTestData.ProjectGroups(rootDocument.Version));
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act
@@ -402,7 +412,7 @@
         {
             // Arrange
             var groups = ServerTestData.ProjectGroups(V32VersionNumber);
-            var group = new OctopusGroupViewModel(groups.Items.First(g => g.Name == "Other Samples"));
+            var group = new OctopusGroupViewModel(groups.First(g => g.Name == "Other Samples"));
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.List<ProjectResource>(group.Resource.Links["Projects"])).Return(ServerTestData.Projects(V32VersionNumber, group.Resource));
 
@@ -489,7 +499,7 @@
             rootDocument.Links.Add("ProjectGroups", string.Empty);
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.RootDocument).Return(rootDocument);
-            this.octopusClient.Expect(x => x.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"])).Return(ServerTestData.ProjectGroups(rootDocument.Version));
+            this.octopusClient.Expect(x => x.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all")).Return(ServerTestData.ProjectGroups(rootDocument.Version));
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act
@@ -512,7 +522,7 @@
         {
             // Arrange
             var groups = ServerTestData.ProjectGroups(V33BetaVersionNumber);
-            var group = new OctopusGroupViewModel(groups.Items.First(g => g.Name == "All Projects"));
+            var group = new OctopusGroupViewModel(groups.First(g => g.Name == "All Projects"));
             this.apiClientFactory.Expect(x => x.GetClient()).Return(this.octopusClient);
             this.octopusClient.Expect(x => x.List<ProjectResource>(group.Resource.Links["Projects"])).Return(ServerTestData.Projects(V33BetaVersionNumber, group.Resource));
 

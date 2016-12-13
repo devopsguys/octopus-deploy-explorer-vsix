@@ -10,6 +10,7 @@
 namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Services
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -91,9 +92,9 @@ namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Services
                 }
                 else
                 {
-                    var groups = client.List<ProjectGroupResource>(rootDocument.Links["ProjectGroups"]);
+                    var groups = client.Get<List<ProjectGroupResource>>(rootDocument.Links["ProjectGroups"] + "/all");
 
-                    foreach (var group in groups.Items.Select(resource => new OctopusGroupViewModel(resource)))
+                    foreach (var group in groups.Select(resource => new OctopusGroupViewModel(resource)))
                     {
                         group.OnLoadChildren += this.GetProjectsIntoGroup;
                         model.Groups.Add(@group);

@@ -133,6 +133,9 @@
     <Content Include="TestData\Responses\2.6.0.778\Projects-2-Progression.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\Responses\3.2.23\Projects-82-VariableSet.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TestData\Responses\3.2.23\Projects-82.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

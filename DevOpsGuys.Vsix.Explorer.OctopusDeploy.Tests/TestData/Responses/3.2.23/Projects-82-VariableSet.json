@@ -1,0 +1,202 @@
+﻿{
+  "Id": "variableset-Projects-82",
+  "OwnerId": "Projects-82",
+  "Version": 15,
+  "Variables": [
+    {
+      "Id": "bbc2e0fc-c7ef-8097-c1e3-84ea4de3ae1b",
+      "Name": "AWSAcessKey",
+      "Value": "ABCDEFGHIJKLMNOP",
+      "Scope": {},
+      "IsSensitive": false,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "bd6528b2-5c97-1e14-7e11-d9941846cdf0",
+      "Name": "AWSSecretKey",
+      "Value": null,
+      "Scope": {},
+      "IsSensitive": true,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "bb7897c5-4839-c83f-58f0-0e373e1acf15",
+      "Name": "ServerName",
+      "Value": "TDB01",
+      "Scope": {
+        "Environment": [
+          "Environments-1"
+        ]
+      },
+      "IsSensitive": false,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "1974d09b-0b9a-5190-6f11-75beaa32ede0",
+      "Name": "ServerName",
+      "Value": "UATDb01",
+      "Scope": {
+        "Environment": [
+          "Environments-2"
+        ]
+      },
+      "IsSensitive": false,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "08a0a71b-31f9-bcf7-c9e1-78aa8c968da6",
+      "Name": "ServerName",
+      "Value": "PrdDB01",
+      "Scope": {
+        "Environment": [
+          "Environments-3"
+        ]
+      },
+      "IsSensitive": false,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "efbb6766-93c8-4c62-c6c4-153b78090fb5",
+      "Name": "secret",
+      "Value": null,
+      "Scope": {},
+      "IsSensitive": true,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "d0534f09-a52e-a382-fb4d-36112671796e",
+      "Name": "OctopusPrintVariables",
+      "Value": "True",
+      "Scope": {},
+      "IsSensitive": false,
+      "IsEditable": true,
+      "Prompt": null
+    },
+    {
+      "Id": "4bd781ca-15a9-a853-0b9f-a6a1a2603317",
+      "Name": "OctopusPrintEvaluatedVariables",
+      "Value": "True",
+      "Scope": {},
+      "IsSensitive": false,
+      "IsEditable": true,
+      "Prompt": null
+    }
+  ],
+  "ScopeValues": {
+    "Environments": [
+      {
+        "Id": "Environments-4",
+        "Name": "Development"
+      },
+      {
+        "Id": "Environments-42",
+        "Name": "Dev"
+      },
+      {
+        "Id": "Environments-1",
+        "Name": "Test"
+      },
+      {
+        "Id": "Environments-2",
+        "Name": "Acceptance"
+      },
+      {
+        "Id": "Environments-41",
+        "Name": "Beta"
+      },
+      {
+        "Id": "Environments-3",
+        "Name": "Production"
+      },
+      {
+        "Id": "Environments-43",
+        "Name": "Production-AU"
+      },
+      {
+        "Id": "Environments-44",
+        "Name": "Production-US"
+      },
+      {
+        "Id": "Environments-81",
+        "Name": "Azure"
+      }
+    ],
+    "Machines": [
+      {
+        "Id": "Machines-1",
+        "Name": "AApp01"
+      },
+      {
+        "Id": "Machines-2",
+        "Name": "AWeb01"
+      },
+      {
+        "Id": "Machines-3",
+        "Name": "DWebApp01"
+      },
+      {
+        "Id": "Machines-81",
+        "Name": "Octopus Server"
+      },
+      {
+        "Id": "Machines-6",
+        "Name": "PApp01"
+      },
+      {
+        "Id": "Machines-40",
+        "Name": "PWeb01"
+      },
+      {
+        "Id": "Machines-7",
+        "Name": "PWeb02"
+      },
+      {
+        "Id": "Machines-8",
+        "Name": "TWebApp01"
+      }
+    ],
+    "Actions": [
+      {
+        "Id": "b4cb4cf2-ca19-457f-8b28-dc5c3861ad51",
+        "Name": "1. Database"
+      },
+      {
+        "Id": "d2f405d0-e3a4-4ba5-99d6-a2ac0783f363",
+        "Name": "2. Rate service"
+      },
+      {
+        "Id": "96361a88-0280-4280-b3ae-e25c23c6ff94",
+        "Name": "3. Stop a Service"
+      }
+    ],
+    "Roles": [
+      {
+        "Id": "app-server",
+        "Name": "app-server"
+      },
+      {
+        "Id": "Octopus Server",
+        "Name": "Octopus Server"
+      },
+      {
+        "Id": "web-server",
+        "Name": "web-server"
+      }
+    ],
+    "Channels": [
+      {
+        "Id": "Channels-1",
+        "Name": "Default"
+      }
+    ]
+  },
+  "Links": {
+    "Self": "/api/variables/variableset-Projects-82"
+  }
+}

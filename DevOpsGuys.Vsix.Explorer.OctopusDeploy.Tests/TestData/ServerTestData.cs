@@ -1,4 +1,13 @@
-﻿namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Tests.TestData
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerTestData.cs" company="DevOpsGuys Ltd">
+//   Copyright (c) DevOpsGuys Ltd. All rights reserved.
+// </copyright>
+// <summary>
+//   Helper class for common API response scenarios.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Tests.TestData
 {
     using System.Collections.Generic;
     using System.IO;

@@ -1,9 +1,4 @@
-﻿{
-  "ItemType": "ProjectGroup",
-  "IsStale": false,
-  "TotalResults": 4,
-  "ItemsPerPage": 10,
-  "Items": [
+﻿  [
     {
       "Id": "ProjectGroups-1",
       "Name": "All Projects",
@@ -48,11 +43,4 @@
         "Projects": "/api/projectgroups/ProjectGroups-40/projects"
       }
     }
-  ],
-  "Links": {
-    "Self": "/api/projectgroups",
-    "Template": "/api/projectgroups{?skip}",
-    "Page.Current": "/api/projectgroups?skip=0",
-    "Page.0": "/api/projectgroups?skip=0"
-  }
-}
+  ]

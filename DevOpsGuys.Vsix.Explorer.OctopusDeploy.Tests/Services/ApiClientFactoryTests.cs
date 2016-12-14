@@ -118,7 +118,7 @@
             var model = new OctopusViewModel();
             var password = new SecureString();
             password.AppendChar('a');
-            this.settingsService.Expect(x => x.GetSettings()).Return(new ServerSettings { OctopusServerUrl = new Uri("https://demo.octopusdeploy.com"), ApiKey = password.ToEncryptedString() });
+            this.settingsService.Expect(x => x.GetSettings()).Return(new ServerSettings { OctopusServerUrl = "https://demo.octopusdeploy.com", ApiKey = password.ToEncryptedString() });
             this.eventAggregator.GetEvent<OctopusModelBuiltEvent>().Subscribe(x => model = x);
 
             // Act

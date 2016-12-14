@@ -148,7 +148,7 @@
 
             // Assert
             settings.ShouldNotBeNull();
-            settings.OctopusServerUrl.ToString().ShouldEqual("https://demo.octopusdeploy.com/");
+            settings.OctopusServerUrl.ShouldEqual("https://demo.octopusdeploy.com/");
             settings.ApiKey.ShouldEqual("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6PQ/PZJkjkuCNs1ytwZvwAAAAAACAAAAAAAQZgAAAAEAACAAAAAjGHW9mZBc0QLvdmNrd2piEXYuKQolo3B0r+7vPeSBIQAAAAAOgAAAAAIAACAAAADy23iR5I1PDMqGUCe/F8SvRn00sGKD2FRxVmv0M9MWfUAAAABGKmPkCqeM52QfFTuubAzrI8VOUMsTlJyvJINMFSpyLlivD4DJ8HeCmT3IZ3cW0uD+qGB7EXK0m+PG5al6fFN4QAAAAOMm+j+MrxgRZzsQN73rwTrb1eSO2Ys9McxkYFQf0pFNqzZBWr3zOw81Ejao4hbGxHXztLjPepkjl2rws+sd79s=");
         }
 
@@ -197,7 +197,7 @@
             settings.ApiKey.ShouldBeNull();
 
             // Arrange - CHange settings to endure we return instance and not a new one.
-            settings.OctopusServerUrl = new Uri("http://w.w.com");
+            settings.OctopusServerUrl = "http://w.w.com";
             settings.ApiKey = "A";
 
             // Act 
@@ -205,7 +205,7 @@
 
             // Assert
             settings.ShouldNotBeNull();
-            settings.OctopusServerUrl.ToString().ShouldEqual("http://w.w.com/");
+            settings.OctopusServerUrl.ShouldEqual("http://w.w.com/");
             settings.ApiKey.ShouldEqual("A");
         }
     }

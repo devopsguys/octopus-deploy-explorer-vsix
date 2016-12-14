@@ -9,8 +9,6 @@
 
 namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Model
 {
-    using System;
-
     /// <summary>
     /// Model to hold the server access details.
     /// </summary>
@@ -22,7 +20,7 @@ namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Model
         /// <value>
         /// The octopus server URL.
         /// </value>
-        public Uri OctopusServerUrl { get; set; }
+        public string OctopusServerUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the API key.

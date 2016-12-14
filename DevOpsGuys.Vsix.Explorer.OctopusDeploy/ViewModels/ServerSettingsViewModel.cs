@@ -86,9 +86,9 @@ namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.ViewModels
         /// <summary>
         /// Gets or sets the string representing the octopus deploy server.
         /// </summary>
-        public Uri OctopusServerUrl
+        public string OctopusServerUrl
         {
-            get { return this.GetPropertyValue<Uri>(); }
+            get { return this.GetPropertyValue<string>(); }
             set { this.SetPropertyValue(value); }
         }
 

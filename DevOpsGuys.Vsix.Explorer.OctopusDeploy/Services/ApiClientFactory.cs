@@ -68,7 +68,7 @@ namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Services
                     return
                         new OctopusClientFactory().CreateClient(
                             new OctopusServerEndpoint(
-                                settings.OctopusServerUrl.AbsoluteUri,
+                                settings.OctopusServerUrl,
                                 settings.ApiKey.ToDecryptedSecureString().ToUnsecureString()));
                 }
 

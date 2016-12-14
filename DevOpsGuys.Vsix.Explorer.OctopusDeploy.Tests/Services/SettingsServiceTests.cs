@@ -197,7 +197,7 @@
             settings.ApiKey.ShouldBeNull();
 
             // Arrange - CHange settings to endure we return instance and not a new one.
-            settings.OctopusServerUrl = "http://w.w.com";
+            settings.OctopusServerUrl = "http://w.w.com/";
             settings.ApiKey = "A";
 
             // Act 

@@ -10,14 +10,20 @@
              xmlns:viewModels="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.ViewModels"
              xmlns:converters="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.Converters"
              xmlns:infrastructure="clr-namespace:DevOpsGuys.Vsix.Explorer.OctopusDeploy.Infrastructure"
+             xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <converters:ReleaseVersionBackgroundConverter x:Key="ReleaseVersionBackgroundConverter"/>
         <converters:ReleaseCellCursorConverter x:Key="ReleaseCellCursorConverter"/>
+        <converters:ReleaseVersionFontSizeConverter x:Key="ReleaseVersionFontSizeConverter" Ratio="0.80"/>
         <DataTemplate x:Key="DynamicCellBackgroundTemplate">
-            <Border Background="{Binding Converter={StaticResource ReleaseVersionBackgroundConverter}}" MinHeight="25">
-                <Label Cursor="{Binding Converter={StaticResource ReleaseCellCursorConverter}}" Content="{Binding ReleaseVersion}"/>
+            <Border Background="{Binding Converter={StaticResource ReleaseVersionBackgroundConverter}}" MinHeight="30">
+                <TextBlock Cursor="{Binding Converter={StaticResource ReleaseCellCursorConverter}}">
+                    <Run Text="{Binding ReleaseVersion}" FontWeight="Bold"/>
+                    <LineBreak />
+                    <Run FontSize="{Binding FontSize, Converter={StaticResource ReleaseVersionFontSizeConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBlock}}" Text="{Binding Path=CompletedTime, StringFormat={}{0:g}, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}"/>
+                </TextBlock>
             </Border>
         </DataTemplate>
         <Style TargetType="Label">

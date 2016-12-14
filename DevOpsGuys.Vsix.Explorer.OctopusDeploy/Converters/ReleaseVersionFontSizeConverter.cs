@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ReleaseCellCursorConverter.cs" company="DevOpsGuys Ltd">
+// <copyright file="ReleaseVersionFontSizeConverter.cs" company="DevOpsGuys Ltd">
 //   Copyright (c) DevOpsGuys Ltd. All rights reserved.
 // </copyright>
 // <summary>
-// Converter to return a cursor for a clickable release.
+//   Converter to scale the font size by a ratio.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -12,12 +12,22 @@ namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Converters
     using System;
     using System.Windows.Data;
 
+    using Octopus.Client.Model;
+
     /// <summary>
-    /// Converter to return a cursor for a clickable release.
+    /// Converter to scale the font size by a ratio.
     /// </summary>
     /// <seealso cref="System.ComponentModel.TypeConverter" />
-    internal class ReleaseCellCursorConverter : IValueConverter
+    internal class ReleaseVersionFontSizeConverter : IValueConverter
     {
+        /// <summary>
+        /// Gets or sets the ratio.
+        /// </summary>
+        /// <value>
+        /// The ratio.
+        /// </value>
+        public double Ratio { get; set; }
+
         /// <summary>
         /// Modifies the source data before passing it to the target for display in the UI.
         /// </summary>
@@ -35,7 +45,10 @@ namespace DevOpsGuys.Vsix.Explorer.OctopusDeploy.Converters
                 return null;
             }
 
-            return "Hand";
+            var originalFontSize = (double)value;
+            double alteredFontSize = originalFontSize * this.Ratio;
+
+            return alteredFontSize;
         }
 
         /// <summary>

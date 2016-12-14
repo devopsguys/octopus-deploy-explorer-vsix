@@ -159,6 +159,7 @@
   <ItemGroup>
     <Compile Include="Converters\ReleaseCellCursorConverter.cs" />
     <Compile Include="Converters\ReleaseLinkConverter.cs" />
+    <Compile Include="Converters\ReleaseVersionFontSizeConverter.cs" />
     <Compile Include="Converters\ReleaseVersionBackgroundConverter.cs" />
     <Compile Include="Events\BackgroundEventSubscription.cs" />
     <Compile Include="Events\CompositePresentationEvent.cs" />
